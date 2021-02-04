@@ -17,7 +17,7 @@ export default function App() {
       
       <navigator.Navigator>
         <navigator.Screen name="Main" component={Main}/>
-        <navigator.Screen name="Chat" component={Chat} />
+        <navigator.Screen name="Chat" component={Chat} styles={{flex:1}} />
 
           
       </navigator.Navigator>

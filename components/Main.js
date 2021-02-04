@@ -13,7 +13,7 @@ import {
  export default function Main ({navigation}) {
     // state = { name: '' } // 2. <- Add the component state
     
-    const[name, setName]= useState([])
+    const[name, setName]= useState('')
 
 
     const onPress = () => {

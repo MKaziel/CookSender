@@ -10,8 +10,7 @@ class Fire {
     //Authentification à la base firebase
     checkAuth = () => {
         firebase.auth().onAuthStateChanged(user => {
-            console.log(user)
-            if(user === null){
+            if(!user ){
                 firebase.auth().signInAnonymously()
             }
         })
@@ -45,9 +44,7 @@ class Fire {
     }
 
     get = (callback) => {
-        this.db
-            .limitToLast(20)
-            .on('child_added', snapshot => callback(this.parse(snapshot)))
+        this.db.on('child_added', snapshot => callback(this.parse(snapshot)))
     }
 
     off(){
