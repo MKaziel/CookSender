@@ -70,7 +70,7 @@ export default class Chat extends React.Component {
     render(){
         console.log(this.state.messages)
         return (
-            <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+            <SafeAreaView style={{flex:1, backgroundColor: '#F9E79F'}}>
                 <GiftedChat 
                 messages={this.state.messages}
                 onSend={Fire.send} 
@@ -97,7 +97,7 @@ export default class Chat extends React.Component {
             }}
             wrapperStyle={{
               left: {
-                backgroundColor: color,              }
+                backgroundColor: color,}
             }}
           />
         )

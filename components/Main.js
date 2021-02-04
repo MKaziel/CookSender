@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     Touchable,
     SafeAreaView,
+    BackHandler,
   } from 'react-native';
 
  export default function Main ({navigation}) {
@@ -21,7 +22,11 @@ import {
     }
 
       return (
-        <SafeAreaView>
+        <SafeAreaView style={{
+          backgroundColor: '#F9E79F',
+          flex:1
+        }          
+        }>
           <Text style={styles.title}>Entrez votre Pseudo : </Text>
           <TextInput
             onChangeText={text => setName(text) }

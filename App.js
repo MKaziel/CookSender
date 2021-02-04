@@ -15,9 +15,14 @@ export default function App() {
   return (
     <NavigationContainer>
       
-      <navigator.Navigator>
-        <navigator.Screen name="Main" component={Main}/>
-        <navigator.Screen name="Chat" component={Chat} styles={{flex:1}} />
+      <navigator.Navigator >
+        <navigator.Screen name="Main" component={Main}  
+                          options={{title: 'Acceuil',
+                                    headerStyle:{backgroundColor: '#F1C40F'},
+                                    }}/>
+        <navigator.Screen name="Chat" component={Chat} styles={{flex:1}} 
+                            options={{headerStyle:{backgroundColor: '#F1C40F'},
+                            }}/>
 
           
       </navigator.Navigator>
@@ -28,7 +33,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F1C40F',
     alignItems: 'center',
     justifyContent: 'center',
   },
