@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
 import Main from './components/Main';
 import Chat from './components/Chat';
+import { Ionicons, Entypo } from '@expo/vector-icons'
+
 
 const navigator = createStackNavigator();
 
