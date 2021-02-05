@@ -23,6 +23,10 @@ import {
       navigation.navigate('Chat', {name: name})
     }
 
+    const onPressOption = () => {
+      navigation.navigate('Option', {name: name})
+    }
+
       return (
         <SafeAreaView style={{
           backgroundColor: '#F9E79F',
@@ -48,6 +52,10 @@ import {
           </View>
          <TouchableOpacity style={styles.continue} onPress={onPress}>
              <Text style={styles.buttonText}>Valider</Text>
+             {/* <AntDesign name="arrowright" size={24} color="black" style={{alignSelf: "center"}} /> */}
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.continue} onPress={onPressOption}>
+             <Text style={styles.buttonText}>Option</Text>
              {/* <AntDesign name="arrowright" size={24} color="black" style={{alignSelf: "center"}} /> */}
           </TouchableOpacity>
         </SafeAreaView>
