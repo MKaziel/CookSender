@@ -1,21 +1,20 @@
 import React, { Component, useState, useEffect } from 'react';
-// import {Ionicons} from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import {
     StyleSheet,
     Text,
     Image,
-    TextInput, // 1. <- Add this 
+    TextInput, 
     View,
     TouchableOpacity,
     Touchable,
     SafeAreaView,
     BackHandler,
   } from 'react-native';
+  import {CONFIG_SERVEUR} from '../config'
 
  export default function Main ({navigation}) {
-    // state = { name: '' } // 2. <- Add the component state
-    
+
     const[name, setName]= useState('')
 
 
@@ -48,15 +47,14 @@ import {
           </View>
          <TouchableOpacity style={styles.continue} onPress={onPress}>
              <Text style={styles.buttonText}>Valider</Text>
-             {/* <AntDesign name="arrowright" size={24} color="black" style={{alignSelf: "center"}} /> */}
           </TouchableOpacity>
-        </SafeAreaView>
+          </SafeAreaView>
       );
   }
 
   const offset = 24;
   const styles = StyleSheet.create({
-    nameInput: { // 3. <- Add a style for the input
+    nameInput: { 
       height: offset * 2,
       margin: offset,
       paddingHorizontal: offset,
