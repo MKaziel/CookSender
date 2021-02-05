@@ -1,8 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
-
+// import {Ionicons} from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import {
     StyleSheet,
     Text,
+    Image,
     TextInput, // 1. <- Add this 
     View,
     TouchableOpacity,
@@ -27,15 +29,26 @@ import {
           flex:1
         }          
         }>
+          <View style={{marginTop : 64}}>
+            <Image 
+              source={require("../assets/cooksender_title.png")} 
+              style={{width: 190, height: 190, alignSelf: "center", marginTop:-130}}/>
+              <Image 
+              source={require("../assets/chat-icon.png")} 
+              style={{width: 100, height: 100, alignSelf: "center", marginTop:-80}}/>
+          </View>
+          <View style={{marginHorizontal: 32}}>
           <Text style={styles.title}>Entrez votre Pseudo : </Text>
           <TextInput
-            onChangeText={text => setName(text) }
             style={styles.nameInput}
             placeHolder="John Cena"
+            onChangeText={text => setName(text) }
             value={name}
           />
-         <TouchableOpacity onPress={onPress}>
+          </View>
+         <TouchableOpacity style={styles.continue} onPress={onPress}>
              <Text style={styles.buttonText}>Valider</Text>
+             {/* <AntDesign name="arrowright" size={24} color="black" style={{alignSelf: "center"}} /> */}
           </TouchableOpacity>
         </SafeAreaView>
       );
@@ -49,14 +62,37 @@ import {
       paddingHorizontal: offset,
       borderColor: '#111111',
       borderWidth: 1,
+      borderRadius: 30,
     },
     title: {
+      fontWeight: "bold",
+      fontSize: 30,
+      color: "#514E5A",
+      marginTop: 30,
       marginTop: offset,
       marginLeft: offset,
       fontSize:offset,
     },
     buttonText:{
-      marginLeft:offset,
-      fontSize:offset
+     alignSelf: "center",
+     fontSize: 20, 
+     fontWeight: "bold"
+  },
+   continue:{
+      width: 150,
+      height: 50,
+      borderRadius: 70 / 2,
+      alignSelf:"center",
+      backgroundColor: "#F1C40F",
+      alignContent: "center",
+      justifyContent: "center"
     }
   });
+
+
+   
+    
+
+
+
+
