@@ -32,10 +32,18 @@ export default class Chat extends React.Component {
 
     render(){
       console.log(this.state.messages)
+      
       return (
           <SafeAreaView style={{flex:1, backgroundColor: '#F9E79F'}}>
             
+            
               <GiftedChat 
+              parsePatterns={linkStyle => [
+                 { pattern: /#(\w+)/,
+                    style: { ...linkStyle, color: 'purple' },
+                    onPress: props => console.warn(props),
+                 },
+              ]}
               messages={this.state.messages}
               onSend={Fire.send} 
               user={this.user} 
