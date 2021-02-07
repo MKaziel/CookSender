@@ -1,3 +1,4 @@
+import StorageTools from "../tools/StorageTools"
 import React, { Component, useState, useEffect } from "react";
 import {
     StyleSheet,
@@ -25,10 +26,19 @@ export default class Option extends React.Component {
         this.onColorChange = this.onColorChange.bind(this);
     }
 
-    componentDidMount() {}
+    str = new StorageTools();
+
+    componentDidMount() {
+        
+        if(this.str.initColorStorage()){
+            console.log("initialisation des couleurs faite");
+        } else {
+            console.log("l'alimentation était déjà faite");
+        }
+    }
 
     onColorChange(color) {
-        console.log(this.state.color);
+        // console.log(StorageTools.getObjectData("colorChatStorage"));
         this.setState({ old_color: this.state.color, color: color });
     }
 
@@ -48,32 +58,22 @@ export default class Option extends React.Component {
                     }
                     style={{ flex: 0.5 }}
                 />
-                <View>
-                    <Text style={{ color: "white" }}> Color 1 </Text>
-                    <TouchableOpacity>
-                        <Text style={{color : fromHsv(this.state.color)}}>test</Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 2 </Text>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 3 </Text>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 4 </Text>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 5 </Text>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 6 </Text>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 7 </Text>
-                </View>
-                <View>
-                    <Text style={{ color: "white" }}> Color 8 </Text>
+                <View style={{flex: 1, flexDirection: 'row'}}>
+                    
+                    <View>
+                        <Text style={{ color: "white" }}> Color 1 </Text>
+                        <Text style={{ color: "white", center: 'flex-start'  }}> Color 2 </Text>
+                        <Text style={{ color: "white" }}> Color 3 </Text>
+                        <Text style={{ color: "white" }}> Color 4 </Text>
+                        <Text style={{ color: "white" }}> Color 5 </Text>
+                        <Text style={{ color: "white" }}> Color 6 </Text>
+                        <Text style={{ color: "white" }}> Color 7 </Text>
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                            <Text style={{color : fromHsv(this.state.color)}}>test</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </SafeAreaView>
         );
