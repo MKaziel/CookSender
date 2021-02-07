@@ -19,27 +19,37 @@ import {
     fromHsv
 } from "react-native-color-picker";
 
+const styles = StyleSheet.create({
+    Text: {
+        flex: 0.5,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+});
 export default class Option extends React.Component {
     constructor(...args) {
         super(...args);
-        this.state = { old_color: toHsv("whtie"), color: toHsv("green") };
+        this.state = { old_color: toHsv("whtie"), color: toHsv("green"), colors: [] };
         this.onColorChange = this.onColorChange.bind(this);
     }
 
     str = new StorageTools();
 
-    componentDidMount() {
-        
+    componentDidMount() {        
         if(this.str.initColorStorage()){
             console.log("initialisation des couleurs faite");
         } else {
             console.log("l'alimentation était déjà faite");
         }
+        this.str.getColorsChatData().then((colors)=>{
+            this.setState({colors}) 
+        })
     }
 
     onColorChange(color) {
         // console.log(StorageTools.getObjectData("colorChatStorage"));
         this.setState({ old_color: this.state.color, color: color });
+
     }
 
     render() {
@@ -60,18 +70,36 @@ export default class Option extends React.Component {
                 />
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     
-                    <View>
-                        <Text style={{ color: "white" }}> Color 1 </Text>
-                        <Text style={{ color: "white", center: 'flex-start'  }}> Color 2 </Text>
-                        <Text style={{ color: "white" }}> Color 3 </Text>
-                        <Text style={{ color: "white" }}> Color 4 </Text>
-                        <Text style={{ color: "white" }}> Color 5 </Text>
-                        <Text style={{ color: "white" }}> Color 6 </Text>
-                        <Text style={{ color: "white" }}> Color 7 </Text>
+                    <View style={styles.Text}>
+                        <Text style={{ color: "white" }}> User 1 </Text>
+                        <Text style={{ color: "white" }}> User 2 </Text>
+                        <Text style={{ color: "white" }}> User 3 </Text>
+                        <Text style={{ color: "white" }}> User 4 </Text>
+                        <Text style={{ color: "white" }}> User 5 </Text>
+                        <Text style={{ color: "white" }}> User 6 </Text>
+                        <Text style={{ color: "white" }}> User 7 </Text>
                     </View>
-                    <View>
+                    <View style={styles.Text}>
                         <TouchableOpacity>
-                            <Text style={{color : fromHsv(this.state.color)}}>test</Text>
+                            <Text style={{ color: "white" }}> Color 1 </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={{ color: "white" }}> Color 2 </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={{ color: "white" }}> Color 3 </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={{ color: "white" }}> Color 4 </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={{ color: "white" }}> Color 5 </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={{ color: "white" }}> Color 6 </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={{ color: "white" }}> Color 7 </Text>
                         </TouchableOpacity>
                     </View>
                 </View>

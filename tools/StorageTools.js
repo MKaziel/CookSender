@@ -43,6 +43,15 @@ export default class StorageTools {
         }
     };
 
+    getColorsChatData = async () => {
+        try {
+            const jsonValue = await AsyncStorage.getItem("colorChatStorage");
+            return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch (e) {
+            // error reading value
+        }
+    };
+
     initColorStorage = async () => {
         const colors = [
             '#e67e229f', // carrot
@@ -51,7 +60,7 @@ export default class StorageTools {
             '#8e44ad9f', // wisteria
             '#e74c3c9f', // alizarin
             '#1abc9c9f', // turquoise
-          '#2c3e509f', // midnight blue
+            '#2c3e509f', // midnight blue
         ];
         try {
             let result = await AsyncStorage.getItem("colorChatStorage")
