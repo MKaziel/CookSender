@@ -8,7 +8,7 @@ export default class StorageTools {
         try {
             await AsyncStorage.setItem(storage_key, value);
         } catch (e) {
-            // saving error
+            console.error(e);
         }
     };
 
@@ -17,7 +17,7 @@ export default class StorageTools {
             const jsonValue = JSON.stringify(value);
             await AsyncStorage.setItem(storage_key, jsonValue);
         } catch (e) {
-            // saving error
+            console.error(e);
         }
     };
 
@@ -25,12 +25,11 @@ export default class StorageTools {
         try {
             const value = await AsyncStorage.getItem(storage_key);
             if (value !== null) {
-                // value previously stored
                 return value
             }
             return null
         } catch (e) {
-            // error reading value
+            console.error(e);
         }
     };
 
@@ -39,7 +38,7 @@ export default class StorageTools {
             const jsonValue = await AsyncStorage.getItem(storage_key);
             return jsonValue != null ? JSON.parse(jsonValue) : null;
         } catch (e) {
-            // error reading value
+            console.error(e);
         }
     };
 
@@ -48,9 +47,17 @@ export default class StorageTools {
             const jsonValue = await AsyncStorage.getItem("colorChatStorage");
             return jsonValue != null ? JSON.parse(jsonValue) : null;
         } catch (e) {
-            // error reading value
+            console.error(e);
         }
     };
+
+    deleteItem = async (key) => {
+        try {
+            await AsyncStorage.removeItem(key)
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     initColorStorage = async () => {
         const colors = [
