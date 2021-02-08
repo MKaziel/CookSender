@@ -93,6 +93,7 @@ export default class Chat extends React.Component {
         for (let i = 0; i < username.length; i++) {
             sumChars += username.charCodeAt(i);
         }
+    }
 
     render(){
         console.log(this.state.messages)
