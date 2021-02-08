@@ -48,24 +48,31 @@ export default class Chat extends React.Component {
         Fire.off();
     }
 
-    render() {
-        console.log(this.state.messages);
-        return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: "#F9E79F" }}>
-                <GiftedChat
-                    messages={this.state.messages}
-                    onSend={Fire.send}
-                    user={this.user}
-                    alwaysShowSend={false}
-                    isTyping={false}
-                    loadEarlier={true}
-                    showUserAvatar={false}
-                    showAvatarForEveryMessageue={true}
-                    renderMessage={this.renderBubble}
-                />
-            </SafeAreaView>
-        );
-    }
+    // render() {
+    //     console.log(this.state.messages);
+    //     return (
+    //         <SafeAreaView style={{ flex: 1, backgroundColor: "#F9E79F" }}>
+    //             <GiftedChat
+    //                 parsePatterns={linkStyle => [
+    //                     {
+    //                         pattern: /#(\w+)/,
+    //                         style: { ...linkStyle, color: 'purple' },
+    //                         onPress: props => console.warn(props),
+    //                     },
+    //                 ]}
+    //                 messages={this.state.messages}
+    //                 onSend={Fire.send}
+    //                 user={this.user}
+    //                 alwaysShowSend={false}
+    //                 isTyping={false}
+    //                 loadEarlier={true}
+    //                 showUserAvatar={false}
+    //                 showAvatarForEveryMessageue={true}
+    //                 renderMessage={this.renderBubble}
+    //             />
+    //         </SafeAreaView>
+    //     );
+    // }
 
     renderBubble = (props) => {
         let username = props.currentMessage.user.name;
@@ -95,56 +102,64 @@ export default class Chat extends React.Component {
         }
     }
 
-    render(){
+    render() {
         console.log(this.state.messages)
         return (
-            <SafeAreaView style={{flex:1, backgroundColor: '#F9E79F'}}>
-                <GiftedChat 
-                messages={this.state.messages}
-                onSend={Fire.send} 
-                user={this.user} 
-                alwaysShowSend={false}
-                loadEarlier={true}
-                renderMessage={this.renderBubble}
-                showUserAvatar={true}
-                showAvatarForEveryMessageue={true}
-                />    
-                
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#F9E79F' }}>
+                <GiftedChat
+                    parsePatterns={linkStyle => [
+                        {
+                            pattern: /#(\w+)/,
+                            style: { ...linkStyle, color: 'purple' },
+                            onPress: props => console.warn(props),
+                        },
+                    ]}
+                    messages={this.state.messages}
+                    onSend={Fire.send}
+                    user={this.user}
+                    alwaysShowSend={false}
+                    loadEarlier={true}
+                    renderMessage={this.renderBubble}
+                    showUserAvatar={true}
+                    showAvatarForEveryMessageue={true}
+                />
+
             </SafeAreaView>
         )
     }
 
-    renderBubble = props => {
-        let username = props.currentMessage.user.name
-        let color = this.getColor(username)
-    
-        return (
-          <Bubble
-            {...props}
-            textStyle={{
-              right: {
-                color: 'white',
+    // renderBubble = props => {
+    //     let username = props.currentMessage.user.name
+    //     let color = this.getColor(username)
 
-              }
-            }}
-            wrapperStyle={{
-              left: {
-                backgroundColor: color,
-                marginLeft: 5,
-                marginVertical: 5},
-            }}
-          />
-        )
-      }
-    
-      getColor(username){
-        let sumChars = 0;
-        for(let i = 0;i < username.length;i++){
-          sumChars += username.charCodeAt(i);
-        }
-        const colors = this.state.colors;
-        return colors[sumChars % colors.length];
-    }
+    //     return (
+    //         <Bubble
+    //             {...props}
+    //             textStyle={{
+    //                 right: {
+    //                     color: 'white',
+
+    //                 }
+    //             }}
+    //             wrapperStyle={{
+    //                 left: {
+    //                     backgroundColor: color,
+    //                     marginLeft: 5,
+    //                     marginVertical: 5
+    //                 },
+    //             }}
+    //         />
+    //     )
+    // }
+
+    // getColor(username) {
+    //     let sumChars = 0;
+    //     for (let i = 0; i < username.length; i++) {
+    //         sumChars += username.charCodeAt(i);
+    //     }
+    //     const colors = this.state.colors;
+    //     return colors[sumChars % colors.length];
+    // }
 }
 
 const styles = StyleSheet.create({});

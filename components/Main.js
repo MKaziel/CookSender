@@ -32,14 +32,11 @@ import {
           flex:1
         }          
         }>
-          <View style={{marginTop : 64}}>
-            <Image 
-              source={require("../assets/cooksender_title.png")} 
-              style={{width: 190, height: 190, alignSelf: "center", marginTop:-130}}/>
-              <Image 
-              source={require("../assets/chat-icon.png")} 
-              style={{width: 100, height: 100, alignSelf: "center", marginTop:-80}}/>
-          </View>
+           <View style={{ marginTop: 100 }}>
+        <Image
+          source={require("../assets/cooksender_title.png")}
+          style={{ width: 250, height: 250, alignSelf: "center", marginTop: -150 }} />
+      </View>
           <View style={{marginHorizontal: 32}}>
           <Text style={styles.title}>Entrez votre Pseudo : </Text>
           <TextInput
@@ -74,8 +71,8 @@ import {
       fontWeight: "bold",
       fontSize: 30,
       color: "#514E5A",
-      marginTop: 30,
-      marginTop: offset,
+      marginTop: -80,
+      // marginTop: offset,
       marginLeft: offset,
       fontSize:offset,
     },
