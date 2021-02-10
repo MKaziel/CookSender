@@ -32,10 +32,10 @@ import {
           flex:1
         }          
         }>
-           <View style={{ marginTop: 100 }}>
+           <View style={{ marginTop: 100, }}>
         <Image
           source={require("../assets/cooksender_title.png")}
-          style={{ width: 250, height: 250, alignSelf: "center", marginTop: -150 }} />
+          style={{ width: 350, height: 300, alignSelf: "center", marginTop: -150 }} />
       </View>
           <View style={{marginHorizontal: 32}}>
           <Text style={styles.title}>Entrez votre Pseudo : </Text>
@@ -66,6 +66,8 @@ import {
       borderColor: '#111111',
       borderWidth: 1,
       borderRadius: 30,
+      alignSelf: "center",
+      width: 300
     },
     title: {
       fontWeight: "bold",
@@ -75,6 +77,7 @@ import {
       // marginTop: offset,
       marginLeft: offset,
       fontSize:offset,
+      alignSelf: "center"
     },
     buttonText:{
      alignSelf: "center",
@@ -88,7 +91,8 @@ import {
       alignSelf:"center",
       backgroundColor: "#F1C40F",
       alignContent: "center",
-      justifyContent: "center"
+      justifyContent: "center",
+      marginBottom: 10
     }
   });
 
