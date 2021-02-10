@@ -48,32 +48,37 @@ export default class Chat extends React.Component {
         Fire.off();
     }
 
-    renderBubble = (props) => {
-        let username = props.currentMessage.user.name;
-        let color = this.getColor(username);
+    renderBubble = props => {
+        let username = props.currentMessage.user.name
+        let color = this.getColor(username)
 
         return (
             <Bubble
                 {...props}
                 textStyle={{
                     right: {
-                        color: "white",
-                    },
+                        color: 'white',
+
+                    }
                 }}
                 wrapperStyle={{
                     left: {
                         backgroundColor: color,
+                        marginLeft: 5,
+                        marginVertical: 5
                     },
                 }}
             />
-        );
-    };
+        )
+    }
 
     getColor(username) {
         let sumChars = 0;
         for (let i = 0; i < username.length; i++) {
             sumChars += username.charCodeAt(i);
         }
+        const colors = this.state.colors;
+        return colors[sumChars % colors.length];
     }
 
     render() {
